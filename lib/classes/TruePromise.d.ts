@@ -32,6 +32,6 @@ export declare class TruePromise<ResolveValue = void, RejectValue = void> {
     }>;
     static reject: <RejectValue_1 = void>(rejectValue: RejectValue_1) => TruePromise<void, RejectValue_1>;
     static resolve: <ResolveValue_1 = void>(resolveValue: ResolveValue_1) => TruePromise<ResolveValue_1, void>;
-    static timeout: <ResolveValue_1 = void, RejectValue_1 = void>(promise: TruePromise<ResolveValue_1, RejectValue_1> | Promise<ResolveValue_1>, timeout: number) => TruePromise<ResolveValue_1, RejectValue_1 | "timeout">;
+    static timeout: <ResolveValue_1 = void, RejectValue_1 = void>(executor: (resolve: (value: ResolveValue_1) => void, reject: (value: RejectValue_1) => void) => void, timeout: number) => TruePromise<ResolveValue_1, RejectValue_1 | "timeout">;
 }
 //# sourceMappingURL=TruePromise.d.ts.map

@@ -1,11 +1,21 @@
 /**
- * Promise that won't crash the app if rejection is not handled.
- * Resolve/Reject asynchrnously. If then/catch are called after resolving/rejected, it will still work.
- * Reject value can be typed.
  *
- * The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
- * Most parts of the implementation is taken from native javascript Promise.
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+ * TruePromise is a an overhaul of the javascript class Promise. [Learn how to use Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+ *
+ *
+ * TruePromise is meant to be used with TypeScript.
+ *
+ * _TruePromise works with async/await syntax in a nodeJS environnement. ⚠️ Not tested in a commonJS environnement._
+ *
+ * - Do not throw error if not handled.
+ * - Allow delayed calling of then/catch.
+ * - Correctly type the value in reject cases.
+ * - Rework of the static methods with better types.
+ * - New timeout() static method.
+ *
+ * The main purpose of a Promise is to handle a script that can be accepted (resolved), or refused (rejected). For each case, it case send a value.
+ * TruePromise is used the same way as javascript Promise. Some returned value may change in static methods.
+ * All methods offer documentation while hovering them in your IDE. Most of them are taken from [Mozilla's Promise documentation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise).
  */
 export class TruePromise<ResolveValue = void, RejectValue = void> {
 	// "pending": waiting for resolve or reject. "resolved" resolve was called. "rejected" was called. "finished" thenFunction or catchFunction was called.
@@ -350,9 +360,14 @@ export class TruePromise<ResolveValue = void, RejectValue = void> {
 	 * @param promises Array of promises.
 	 * @returns a new TruePromise that immediatly resolve.
 	 */
-	 static timeout = <ResolveValue = void, RejectValue = void>(promise: TruePromise<ResolveValue, RejectValue> | Promise<ResolveValue>, timeout: number) => {
+	 static timeout = <ResolveValue = void, RejectValue = void>(
+		executor: (
+			resolve: (value: ResolveValue) => void,
+			reject: (value: RejectValue) => void
+		) => void,
+		timeout: number) => {
 		return new TruePromise<ResolveValue, RejectValue | "timeout">((resolve, reject) => {
-			promise
+			new TruePromise<ResolveValue, RejectValue>(executor)
 				.then(resolve)
 				.catch(reject);
 
