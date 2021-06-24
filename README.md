@@ -80,7 +80,7 @@ const promise = new TruePromise<string, number>((resolve, reject) => {
 }); // No then() called.
 
 setTimeout(() => {
-  promise.then((value) => console.log(value)); // Since the promise has been previously rejected, the reject function is immediatly called. And you now for sure the value is a number.
+  promise.catch((value) => console.log(value)); // Since the promise has been previously rejected, the reject function is immediatly called. And you now for sure the value is a number.
 }, 1000);
 ```
 
