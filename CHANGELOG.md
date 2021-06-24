@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/lenacassandre/true-promises/compare/v1.0.1...v1.0.2) (2021-06-24)
+
+
+### Bug Fixes
+
+* **package.json:** fixed repo name ([ebe07bd](https://github.com/lenacassandre/true-promises/commit/ebe07bd8621a83dee9772b86e672b2b848cf14fd))
+
 ### [1.0.1](https://github.com/lenacassandre/true-promises/compare/v0.0.4...v1.0.1) (2021-06-24)
 
 ### [0.0.4](https://github.com/lenacassandre/true-promises/compare/v0.0.3...v0.0.4) (2021-06-24)
