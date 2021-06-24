@@ -1,2 +1,2 @@
-# true-promise
+# true-promises
 Typescript promises overhaul
