@@ -1,5 +1,5 @@
 {
-    "name": "true-promises",
+    "name": "true-promise",
     "version": "1.0.1",
     "description": "Typescript promises overhaul",
     "main": "lib/index.js",
