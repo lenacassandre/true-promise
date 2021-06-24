@@ -1,4 +1,4 @@
-# true-promises
+# true-promise
 Typescript promises overhaul
 
 ⚠️ TruePromise works with async/await syntax in a nodeJS environnement. Not tested in a commonJS environnement.
