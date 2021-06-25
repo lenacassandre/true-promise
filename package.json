@@ -1,6 +1,6 @@
 {
     "name": "true-promise",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Typescript promises overhaul",
     "main": "lib/index.js",
     "module": "./lib/index.js",
