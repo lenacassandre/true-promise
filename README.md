@@ -6,7 +6,7 @@ TruePromise is a an overhaul of the javascript class Promise. [Learn how to use 
 
 # Introduction
 
-TruePromise is meant to be used with TypeScript.
+TruePromise is meant to be used with TypeScript. It may not fit your needs. Try [bluebird](https://github.com/petkaantonov/bluebird).
 
 _TruePromise works with async/await syntax in a nodeJS environnement. ⚠️ Not tested in a commonJS environnement._
 
