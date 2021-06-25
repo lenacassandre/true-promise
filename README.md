@@ -30,9 +30,9 @@ _TruePromise works with async/await syntax in a nodeJS environnement. ⚠️ Not
 
 # Importing
 
-You can name it as you want. For example, let's replace javascript Promise class.
+You can replace the javascript Promise class.
 ```ts
-import Promise from 'true-promise';
+import { Promise } from 'true-promise';
 ```
 
 or
