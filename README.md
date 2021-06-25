@@ -10,9 +10,9 @@ TruePromise is meant to be used with TypeScript.
 
 _TruePromise works with async/await syntax in a nodeJS environnement. ⚠️ Not tested in a commonJS environnement._
 
-- Do not throw error if not handled.
-- Allow delayed calling of then/catch.
-- Correctly type the value in reject cases.
+- Does not throw error if not handled.
+- Allows delayed calling of then/catch.
+- Correctly types the value in reject cases.
 - Rework of the static methods with better types.
 - New timeout() static method.
 
@@ -42,13 +42,13 @@ or
 import { TruePromise } from 'true-promise';
 ```
 
-For clarity sake, following examples will use `TruePromise` spelling when refering to this library's _Promise_ class, but you can use `Promise` as well.
+For clarity's sake, following examples will use `TruePromise` spelling when refering to this library's _Promise_ class, but you can use `Promise` as well.
 
 
 
 # Usage
 
-The main purpose of a Promise is to handle a script that can be accepted (resolved), or refused (rejected). For each case, it case send a value.
+The main purpose of a Promise is to handle a script that can be accepted (resolved), or refused (rejected). For each case, it can send back a value.
 TruePromise is used the same way as javascript Promise. Some returned value may change in static methods.
 All methods offer documentation while hovering them in your IDE. Most of them are taken from [Mozilla's Promise documentation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
@@ -80,13 +80,13 @@ const promise = new TruePromise<string, number>((resolve, reject) => {
 }); // No then() called.
 
 setTimeout(() => {
-  promise.catch((value) => console.log(value)); // Since the promise has been previously rejected, the reject function is immediatly called. And you now for sure the value is a number.
+  promise.catch((value) => console.log(value)); // Since the promise has been previously rejected, the reject function is immediatly called. And now know for sure the value is a number.
 }, 1000);
 ```
 
 ## Static methods
 
-Statics methods have been rework to implement the rejected value type feature. All static methods taking promises as argument accept javascript Promise and TruePromise.
+Statics methods have been reworked to implement the rejected value type feature. All static methods taking promises as argument accept javascript Promise and TruePromise.
 
 ### TruePromise.all()
 The Promise.all() method takes an iterable of promises as an input, and returns a single Promise that resolves to an array of the results of the input promises, in the same order. This returned promise will resolve when all of the input's promises have resolved, or if the input iterable contains no promises. It rejects immediately upon any of the input promises rejecting, and will reject with this first value as {value, index: index of the rejected promise}.
@@ -146,7 +146,7 @@ TruePromise.allSettled<string, number>([
 
 
 ### TruePromise.any()
-Promise.any() takes an array of Promises and, as soon as one of the promises in the array fulfills, returns a single promise that resolves with the value from that promise. If no promises in the array fulfill (if all of the given promises are rejected), then the returned promise is rejected with all the rejected values from the promise, in the same order.
+Promise.any() takes an array of Promises and, as soon as one of the promises in the array fulfills, returns a single promise that resolves with the value from that promise. If no promises in the array fulfill (if all of the given promises are rejected), then the returned promise is rejected with all of the rejected values from the promise, in the same order.
 
 ```ts
 // Example immediatly rejecting
