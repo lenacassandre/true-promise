@@ -1,7 +1,6 @@
-import { resolve } from "path";
-import { TruePromise } from "./classes/TruePromise";
+import { TruePromise, TruePromise as Promise } from "./classes/TruePromise";
 
-export { TruePromise };
+export { TruePromise, Promise };
 export default TruePromise;
 
 /* TESTS
